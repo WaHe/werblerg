@@ -12,6 +12,7 @@ class Werblerg < Sinatra::Base
   configure do
     set :session_secret, 'super_secret_password'
     set :public_folder, 'public'
+    set :bind, '0.0.0.0'
   end
 
   get '/' do

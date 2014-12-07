@@ -56,7 +56,7 @@
     var jQuery = require('jquery');
     init(kefir, jQuery);
   } else {
-    init(global.Kefir, global.jQuery);
+    init(global.K, global.jQuery);
   }
 
 }(this));

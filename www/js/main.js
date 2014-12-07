@@ -1,39 +1,27 @@
-//var h = require('virtual-dom/h');
-//var diff = require('virtual-dom/diff');
-//var patch = require('virtual-dom/patch');
-//var createElement = require('virtual-dom/create-element');
-//
-//Rx = require('./observe');
-//
-//var test = ["test"];
-//var x = new Rx.Emitter(test);
-//x.observe(function(data){console.log("got this event! " + data)});
-//test.push("thing");
-//x.emit();
-//var y = new Rx.Emitter(test);
-//var or = new Rx.Or(x, y);
-//or.observe(function(data){console.log("or worked! " + data)});
-//x.emit();
-//y.emit();
-var Kefir = require('kefir');
-var $ = require('jquery');
+var K = require('kefir');
 require('./lib/kefir-jquery');
+var Renderer = require('./renderer');
+var Incrementer = require('./views/incrementer');
 
-
-var plusClicks = $('#plus-btn').asKefirStream('click');
-var minusClicks = $('#minus-btn').asKefirStream('click');
-
-var counterChanges = Kefir.merge(
-	plusClicks.mapTo(1),
-	minusClicks.mapTo(-1)
-);
+var count = 0;      // We need some app data. Here we just store a count.
 
 function sum(a, b) {
 	return a + b;
 }
 
-var counterValue = counterChanges.scan(0, sum);
+var counterValue = Incrementer.incrementClick.scan(0, sum);
 
-counterValue.onValue(['text', $('#result')]);
+var viewTree = Incrementer.render(count);
+var viewEmitter = K.emitter();
 
-$('#test').css('background-color', 'red');
+Renderer.observe(viewEmitter);
+
+function updateTree(value) {
+	viewTree = Incrementer.render(value);
+	viewEmitter.emit(viewTree);
+}
+
+
+//updateTree(count);
+
+//counterValue.onValue(updateTree);
