@@ -10,11 +10,11 @@ gulp.task('sass', function () {
 	gulp.src('./www/scss/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass())
+		.on('error', handleError)
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./public'));
 });
 
-// Basic usage
 gulp.task('scripts', function() {
 	var browserified = transform(function(filename) {
 		var b = browserify(filename);
@@ -33,3 +33,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['watch', 'scripts', 'sass']);
+
+function handleError(error) {
+	console.log("[ERROR] " + error.plugin + ": " + error.message);
+}

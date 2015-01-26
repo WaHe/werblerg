@@ -1,0 +1,57 @@
+@import "variables";
+@import "mixins";
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+//Header
+.header {
+  min-height: $header-height;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: $font-title;
+}
+
+.header-image {
+  @include circular-image($header-height, '/public/images/profile.jpg');
+  display: inline-block;
+  margin-left: 20px;
+  @media screen and (max-width: 650px) {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.header-bar {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+  @media screen and (max-width: 650px) {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header-subtitle {
+  font-family: $font-content;
+  font-style: italic;
+  color: $text-color-subtle;
+}
+
+.copyright {
+  color: $text-color-subtle;
+  font-size: 0.8em;
+  text-align: center;
+  margin-top: 30px;
+}

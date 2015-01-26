@@ -1,0 +1,17 @@
+$header-height: 100px;
+
+
+//Text
+$font-content: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$font-title: "Trebuchet MS", Helvetica, sans-serif;
+$font-code: "Lucida Console", Monaco, monospace;
+
+$text-color-default: #000000;
+$text-color-subtle: #9b9b9b;
+
+
+//Loading
+$loading-anim-length: 1s;
+$loading-anim-dist: 25px;
+$loading-anim-size: 10px;
+$loading-color: $text-color-subtle;

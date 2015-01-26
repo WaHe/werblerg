@@ -1,18 +1,6 @@
 var pg = require('pg');
 var conString = "postgres://postgres:password@localhost/postgres";
 
-var client = null;
-
-function getClient(){
-	if (client) {
-		return client;
-	} else {
-		client = new pg.Client(conString);
-		client.connect();
-		return client;
-	}
-}
-
 function execute(query, parameters) {
 	pg.connect(conString, function (err, client, done) {
 		if (err) {
