@@ -13,17 +13,11 @@ function parseEquations(str, cb) {
 	var matches = [];
 	var replacements = [];
 	while (m = regex.exec(str)) {
-		//var offset = 1;
-		//if (m[1].trim().length < m[1].length) {
-		//	offset =
-		//}
 		console.log(m[1].trim());
 		matches.push({index: m.index + 1, len: m[0].length - 1, text: m[1].trim()});
-		//console.log(m[1].trim())
 	}
 	async.each(matches,
 		function(match, next) {
-			//console.log("typeset for " + match.text);
 			mj.typeset({math: match.text, format: "inline-TeX", svg: true}, function(final){
 				replacements.push(final.svg);
 				next();

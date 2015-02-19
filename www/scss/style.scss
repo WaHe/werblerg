@@ -10,4 +10,12 @@ html, body {
   margin: 0;
   font-family: $font-content;
   color: $text-color-default;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }

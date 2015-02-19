@@ -6,7 +6,18 @@ function info() {
 			"1/15/15"
 		),
 		h('div.info-categories',
-			"Art, Music, Programming, Talking about stuff that's stuff"
+			h('a.info-category', {href: '#'},
+				"Art"
+			),
+			h('a.info-category', {href: '#'},
+				"Music"
+			),
+			h('a.info-category', {href: '#'},
+				"Programming"
+			),
+			h('a.info-category', {href: '#'},
+				"Talking about stuff that's stuff"
+			)
 		)
 	);
 }

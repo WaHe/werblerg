@@ -3,7 +3,10 @@ var h = require('hyperscript');
 function blog(content) {
 	return h('div.container',
 		h('div.header',
-			h('div.header-image'),
+			h('a',
+				{href: "/"},
+				h('div.header-image')
+			),
 			h('div.header-bar',
 				h('div.header-title',
 					"Walker Henderson's Blog"

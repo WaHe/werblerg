@@ -8,7 +8,7 @@ function listing() {
 			for (var i = 0; i < 10; i++) {
 				ret.push(
 					h('div.item',
-						h('a.item-title', {href: '#'},
+						h('a.item-title', {href: '/post'},
 							"Awesome post of awesomeness"
 						),
 						h('div.item-synopsis',

@@ -1,19 +1,18 @@
 var express = require('express');
-var h = require('hyperscript');
-var cm = require('commonmark');
 var fs = require('fs');
 
+//Load templates
 var wrapper = require('./templates/wrapper');
 var blog = require('./templates/blog');
 var listing = require('./templates/listing');
 var post = require('./templates/post');
-var db = require('./db');
+
+//Load helpers
+var db = require('./helpers/db');
 var renderEquations = require('./helpers/render-equations');
 var renderMarkdown = require('./helpers/render-markdown');
 
 var app = express();
-
-var doctypeString = '<!DOCTYPE html public "-//W3C//DTD HTML 4.0 Transitional//en" "http://www.w3.org/TR/html4/loose.dtd">';
 
 app.use('/public', express.static('public'));
 
@@ -39,5 +38,5 @@ app.get('/dbtest', function(req, res) {
 var server = app.listen(3000, function () {
 	var host = server.address().address;
 	var port = server.address().port;
-	console.log('Example app listening at http://%s:%s', host, port);
+	console.log('Werblerg listening at http://%s:%s', host, port);
 });

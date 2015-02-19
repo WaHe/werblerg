@@ -262,6 +262,12 @@
   font-family: "Trebuchet MS", Helvetica, sans-serif; }
 .post-content code {
   font-family: "Lucida Console", Monaco, monospace; }
+.post-content pre {
+  padding: 20px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  font-size: 0.9em;
+  border: #c8c8c8 solid 1px; }
 
 .info {
   color: #9b9b9b;
@@ -279,10 +285,26 @@
   padding-left: 10px;
   display: inline; }
 
+.info-category {
+  color: #9b9b9b; }
+  .info-category::after {
+    content: ", ";
+    text-decoration: none; }
+    .info-category::after:hover {
+      text-decoration: none; }
+  .info-category:last-of-type::after {
+    content: ""; }
+
 html, body {
   margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  color: #000000; }
+  color: #000000;
+  text-rendering: optimizeLegibility; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
 
 
 /*# sourceMappingURL=style.css.map */
