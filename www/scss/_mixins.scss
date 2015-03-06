@@ -3,3 +3,43 @@
   -moz-box-shadow:$top $left $blur $spread $color #{$inset};
   box-shadow:$top $left $blur $spread $color #{$inset};
 }
+
+@mixin circular-image($diameter, $image) {
+  background: url($image) no-repeat;
+  background-size: cover;
+  overflow:hidden;
+  -webkit-border-radius:$diameter / 2;
+  -moz-border-radius:$diameter / 2;
+  border-radius:$diameter / 2;
+  width:$diameter;
+  height:$diameter;
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    $browser: '-webkit-'; @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    $browser: '-moz-'; @content;
+  }
+  @-o-keyframes #{$animationName} {
+    $browser: '-o-'; @content;
+  }
+  @keyframes #{$animationName} {
+    $browser: ''; @content;
+  }
+} $browser: null;
+
+@mixin animation($name, $duration, $timing-function, $delay, $iteration-count, $direction: "") {
+  -webkit-animation: $name $duration $timing-function $delay $iteration-count unquote($direction);
+  -moz-animation: $name $duration $timing-function $delay $iteration-count unquote($direction);
+  -o-animation: $name $duration $timing-function $delay $iteration-count unquote($direction);
+  animation: $name $duration $timing-function $delay $iteration-count unquote($direction);
+}
+
+@mixin animation-delay($duration) {
+  -webkit-animation-delay: $duration;
+  -moz-animation-delay: $duration;
+  -o-animation-delay: $duration;
+  animation-delay: $duration;
+}

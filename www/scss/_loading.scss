@@ -1,0 +1,61 @@
+@import "mixins";
+@import "variables";
+
+.loading {
+  margin: 50px auto;
+  width: $loading-anim-size * 2;
+  @include animation(rotation, none, linear, 1.5s, infinite);
+}
+
+.loading-ball {
+  width: $loading-anim-size;
+  height: $loading-anim-size;
+  border-radius: $loading-anim-size / 2;
+  display: inline-block;
+  background-color: $loading-color;
+}
+
+.loading-wrapper {
+  display: inline-block;
+}
+
+.loading-wrapper-left {
+  @include animation(left-down, none, ease-in, $loading-anim-length, infinite);
+}
+.loading-ball-left {
+  @include animation(left-up, none, ease-out, $loading-anim-length, infinite);
+}
+.loading-wrapper-right {
+  @include animation(right-down, none, ease-in, $loading-anim-length, infinite);
+  @include animation-delay($loading-anim-length / 2);
+}
+.loading-ball-right{
+  @include animation(right-up, none, ease-out, $loading-anim-length, infinite);
+  @include animation-delay($loading-anim-length / 2);
+}
+
+//Animation definitions
+@include keyframes('rotation') {
+  from {#{$browser}transform: rotate(0deg);}
+  to   {#{$browser}transform: rotate(359deg);}
+}
+
+@include keyframes('left-up') {
+  0%   { #{$browser}transform: translateX(0px);}
+  25%, 100% { #{$browser}transform: translateX(-$loading-anim-dist); }
+}
+
+@include keyframes('left-down') {
+  0%, 25%   { #{$browser}transform: translateX(0px);}
+  50%, 100% { #{$browser}transform: translateX($loading-anim-dist); }
+}
+
+@include keyframes('right-up') {
+  0%   { #{$browser}transform: translateX(0px);}
+  25%, 100% { #{$browser}transform: translateX($loading-anim-dist); }
+}
+
+@include keyframes('right-down') {
+  0%, 25% { #{$browser}transform: translateX(0); }
+  50%, 100% { #{$browser}transform: translateX(-$loading-anim-dist); }
+}
