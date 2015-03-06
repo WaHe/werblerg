@@ -1,5 +1,8 @@
 fi fj fl ffi gg gy
 
+![testimg](/public/postimages/profile.jpg)
+
+
 Code
 -----------
 Sometimes I write code like this:
@@ -9,3 +12,9 @@ define foobar() {
 }
 ~~~
 Gosh darn
+
+Sometimes `I embed code` in the middle of my `sentences`.
+fdsahjfdsafdsafdsafdsafkldjsakfjdsaklfjdsklafjdlksajfdklsajflkdsa
+fdsahjfdsafdsafdsafdsafkldjsakfjdsaklfjdsklafjdlksajfdklsajflkdsa
+
+

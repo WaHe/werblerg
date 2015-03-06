@@ -261,13 +261,25 @@
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
   font-family: "Trebuchet MS", Helvetica, sans-serif; }
 .post-content code {
-  font-family: "Lucida Console", Monaco, monospace; }
+  font-family: "Lucida Console", Monaco, monospace;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  font-size: 0.9em;
+  padding: 2px;
+  border: #c8c8c8 solid 1px; }
 .post-content pre {
   padding: 20px;
   background-color: #e5e5e5;
   border-radius: 10px;
-  font-size: 0.9em;
-  border: #c8c8c8 solid 1px; }
+  line-height: 1.5em;
+  border: #c8c8c8 solid 1px;
+  overflow: scroll; }
+  .post-content pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0; }
+.post-content svg {
+  max-width: 100%; }
 
 .info {
   color: #9b9b9b;
@@ -278,7 +290,6 @@
 
 .info-date {
   padding-right: 10px;
-  border-right: 1px solid;
   display: inline; }
 
 .info-categories {

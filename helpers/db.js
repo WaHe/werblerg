@@ -1,20 +1,14 @@
-var pg = require('pg');
-var conString = "postgres://postgres:password@localhost/postgres";
+var pg = require('pg').native;
+var conString = "postgres://postgres:terriblehummusdebacle@localhost/postgres";
 
-function execute(query, parameters) {
+function execute(query, parameters, callback) {
 	pg.connect(conString, function (err, client, done) {
 		if (err) {
 			return console.error('error fetching client from pool', err);
 		}
-		client.query('SELECT $1::int AS number', ['1'], function (err, result) {
-			//call `done()` to release the client back to the pool
+		client.query(query, parameters, function (err, result) {
 			done();
-
-			if (err) {
-				return console.error('error running query', err);
-			}
-			console.log(result.rows[0]);
-			//output: 1
+			callback(err, result);
 		});
 	});
 }

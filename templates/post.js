@@ -1,16 +1,14 @@
-var h = require('hyperscript');
-var info = require('./info');
-
-function post(content) {
-	var postContent = h('div.post-content', []);
-	postContent.innerHTML = content;
-	return h('div.post',
-		h('h1.post-title',
-			"The title of this post is, \"The title of this post.\""
-		),
-		info(),
-		postContent
-	);
-}
-
-module.exports = post;
+module.exports = function (h) {
+	var info = require('./info')(h);
+	return function(post) {
+		var postContent = h('div.post-content', []);
+		postContent.innerHTML = post.html;
+		return h('div.post',
+			h('h1.post-title',
+				post.title
+			),
+			info(post),
+			postContent
+		);
+	}
+};

@@ -13,7 +13,6 @@ function parseEquations(str, cb) {
 	var matches = [];
 	var replacements = [];
 	while (m = regex.exec(str)) {
-		console.log(m[1].trim());
 		matches.push({index: m.index + 1, len: m[0].length - 1, text: m[1].trim()});
 	}
 	async.each(matches,
