@@ -2,6 +2,8 @@ var express = require('express');
 var fs = require('fs');
 var h = require('hyperscript');
 
+var config = require('./config');
+
 //Load templates
 var wrapper = require('./templates/wrapper')(h);
 var blog = require('./templates/blog')(h);
@@ -11,8 +13,6 @@ var notFound = require('./templates/404')(h);
 
 //Load helpers
 var db = require('./helpers/db');
-var renderEquations = require('./helpers/render-equations');
-var renderMarkdown = require('./helpers/render-markdown');
 var verify = require('./helpers/verify');
 
 //Load accessors
@@ -20,7 +20,9 @@ var postDao = require('./db/post');
 
 var app = express();
 
-app.use('/public', express.static('public'));
+if (config.sendStaticFiles) {
+	app.use('/public', express.static('public'));
+}
 
 app.get('/', function (req, res) {
 	postDao.getAllPosts(function(err, result) {

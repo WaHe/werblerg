@@ -5,16 +5,16 @@ module.exports = function (h) {
 				h('a',
 					{
 						href: "/",
-						title: "Walker Henderson"
+						title: "Walker's Blog"
 					},
 					h('div.header-image')
 				),
 				h('div.header-bar',
 					h('div.header-title',
-						"Walker Henderson's Blog"
+						"Walker's Blog"
 					),
 					h('div.header-subtitle',
-						"He writes about stuff and pretends that he's smart."
+						"Assorted thoughts."
 					)
 				)
 			),

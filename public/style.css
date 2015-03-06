@@ -249,9 +249,10 @@
     margin-bottom: 0; }
 
 .item-title {
-  margin: 0;
+  margin: 0 0 5px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  font-size: 1.3em; }
+  font-size: 1.3em;
+  display: block; }
 
 .post-title {
   margin: 0;
@@ -279,6 +280,10 @@
     border: none;
     padding: 0; }
 .post-content svg {
+  max-width: 100%; }
+.post-content img {
+  margin: 0 auto;
+  display: block;
   max-width: 100%; }
 
 .info {

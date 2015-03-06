@@ -11,9 +11,10 @@
 }
 
 .item-title {
-  margin: 0;
+  margin: 0 0 5px;
   font-family: $font-title;
   font-size: 1.3em;
+  display:block;
 }
 
 .item-synopsis {
