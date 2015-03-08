@@ -232,7 +232,7 @@
   font-weight: bold; }
 
 .header-subtitle {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: Vollkorn, serif;
   font-style: italic;
   color: #9b9b9b; }
 
@@ -311,9 +311,29 @@
   .info-category:last-of-type::after {
     content: ""; }
 
+@font-face {
+  font-family: Vollkorn;
+  src: url(public/fonts/Vollkorn-Regular.ttf); }
+
+@font-face {
+  font-family: Vollkorn;
+  src: url(public/fonts/Vollkorn-Bold.ttf);
+  font-weight: bold; }
+
+@font-face {
+  font-family: Vollkorn;
+  src: url(public/fonts/Vollkorn-Italic.ttf);
+  font-style: italic; }
+
+@font-face {
+  font-family: Vollkorn;
+  src: url(public/fonts/Vollkorn-BoldItalic.ttf);
+  font-weight: bold;
+  font-style: italic; }
+
 html, body {
   margin: 0;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: Vollkorn, serif;
   color: #000000;
   text-rendering: optimizeLegibility; }
 
