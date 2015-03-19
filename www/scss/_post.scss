@@ -3,13 +3,18 @@
 
 .post-title {
   margin: 0;
-  font-size: 1.7em;
-  font-family: $font-title;
+  font-size: 1.4em;
+  @include title-font();
+  text-transform: uppercase;
 }
 
 .post-content {
+  p {
+    font-size: 1.2em;
+  }
   h1, h2, h3, h4, h5, h6 {
-    font-family: $font-title;
+    @include title-font();
+    text-transform: uppercase;
   }
   code {
     font-family: $font-code;

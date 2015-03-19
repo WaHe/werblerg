@@ -191,14 +191,12 @@
 .container {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 1.2em;
   padding: 10px; }
 
 .header {
   min-height: 100px;
   padding-top: 20px;
-  padding-bottom: 20px;
-  font-family: "Trebuchet MS", Helvetica, sans-serif; }
+  padding-bottom: 20px; }
 
 .header-image {
   background: url('/public/images/profile.jpg') no-repeat;
@@ -229,11 +227,15 @@
 .header-title {
   margin: 0;
   font-size: 1.5em;
-  font-weight: bold; }
+  font-weight: bold;
+  font-family: Futura, 'Open Sans', Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25em; }
 
 .header-subtitle {
   font-family: Vollkorn, serif;
   font-style: italic;
+  font-size: 1.2em;
   color: #9b9b9b; }
 
 .copyright {
@@ -250,17 +252,30 @@
 
 .item-title {
   margin: 0 0 5px;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-family: Futura, 'Open Sans', Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
   font-size: 1.3em;
   display: block; }
 
+.item-synopsis {
+  font-size: 1.2em; }
+
 .post-title {
   margin: 0;
-  font-size: 1.7em;
-  font-family: "Trebuchet MS", Helvetica, sans-serif; }
+  font-size: 1.4em;
+  font-family: Futura, 'Open Sans', Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  text-transform: uppercase; }
 
+.post-content p {
+  font-size: 1.2em; }
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
-  font-family: "Trebuchet MS", Helvetica, sans-serif; }
+  font-family: Futura, 'Open Sans', Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  text-transform: uppercase; }
 .post-content code {
   font-family: "Lucida Console", Monaco, monospace;
   background-color: #e5e5e5;

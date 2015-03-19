@@ -3,7 +3,7 @@ $header-height: 100px;
 
 //Text
 $font-content: Vollkorn, serif;
-$font-title: "Trebuchet MS", Helvetica, sans-serif;
+$font-title: Futura, 'Open Sans', Helvetica, sans-serif;//"Trebuchet MS", Helvetica, sans-serif;
 $font-code: "Lucida Console", Monaco, monospace;
 
 $text-color-default: #000000;
@@ -15,3 +15,9 @@ $loading-anim-length: 1s;
 $loading-anim-dist: 25px;
 $loading-anim-size: 10px;
 $loading-color: $text-color-subtle;
+
+@mixin title-font() {
+  font-family: $font-title;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+}

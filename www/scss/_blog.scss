@@ -4,7 +4,7 @@
 .container {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 1.2em;
+  //font-size: em;
   padding: 10px;
 }
 
@@ -13,7 +13,6 @@
   min-height: $header-height;
   padding-top: 20px;
   padding-bottom: 20px;
-  font-family: $font-title;
 }
 
 .header-image {
@@ -41,11 +40,13 @@
   margin: 0;
   font-size: 1.5em;
   font-weight: bold;
+  @include title-font();
 }
 
 .header-subtitle {
   font-family: $font-content;
   font-style: italic;
+  font-size: 1.2em;
   color: $text-color-subtle;
 }
 

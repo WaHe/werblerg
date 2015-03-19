@@ -12,11 +12,11 @@
 
 .item-title {
   margin: 0 0 5px;
-  font-family: $font-title;
+  @include title-font();
   font-size: 1.3em;
   display:block;
 }
 
 .item-synopsis {
-  //color: $text-color-subtle;
+  font-size: 1.2em;
 }
