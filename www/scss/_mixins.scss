@@ -43,3 +43,10 @@
   -o-animation-delay: $duration;
   animation-delay: $duration;
 }
+
+@mixin title-font() {
+  font-family: $font-title;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: normal;
+}

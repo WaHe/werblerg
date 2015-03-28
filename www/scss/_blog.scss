@@ -39,7 +39,6 @@
 .header-title {
   margin: 0;
   font-size: 1.5em;
-  font-weight: bold;
   @include title-font();
 }
 
@@ -55,4 +54,8 @@
   font-size: 0.8em;
   text-align: center;
   margin-top: 30px;
+}
+
+h1 h2 h3 h4 h5 h6 {
+  font-weight: normal;
 }

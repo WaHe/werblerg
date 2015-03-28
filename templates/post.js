@@ -4,10 +4,12 @@ module.exports = function (h) {
 		var postContent = h('div.post-content', []);
 		postContent.innerHTML = post.html;
 		return h('div.post',
-			h('h1.post-title',
-				post.title
+			h('div.post-header',
+				h('h1.post-title',
+					post.title
+				),
+				info(post)
 			),
-			info(post),
 			postContent
 		);
 	}

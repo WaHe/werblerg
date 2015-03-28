@@ -5,10 +5,10 @@ $header-height: 100px;
 $font-content: Vollkorn, serif;
 $font-title: Futura, 'Open Sans', Helvetica, sans-serif;//"Trebuchet MS", Helvetica, sans-serif;
 $font-code: "Lucida Console", Monaco, monospace;
+$font-small-header: "Trebuchet MS", Helvetica, sans-serif;
 
 $text-color-default: #000000;
 $text-color-subtle: #9b9b9b;
-
 
 //Loading
 $loading-anim-length: 1s;
@@ -16,8 +16,4 @@ $loading-anim-dist: 25px;
 $loading-anim-size: 10px;
 $loading-color: $text-color-subtle;
 
-@mixin title-font() {
-  font-family: $font-title;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-}
+$header-border-color: #ddd;
