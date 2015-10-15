@@ -12,31 +12,33 @@
   text-transform: uppercase;
 }
 
+p {
+  font-size: 1.2em;
+}
+
+//Headers
+h1, h2, h3, h4, h5, h6 {
+  @include title-font();
+  font-weight: normal;
+}
+
+h1 {
+  border-bottom: double 3px $header-border-color;
+}
+
+h2 {
+  border-bottom: solid 1px $header-border-color;
+}
+
+h4, h5, h6 {
+  color: #777;
+}
+
+h6 {
+  font-style: italic;
+}
+
 .post-content {
-  p {
-    font-size: 1.2em;
-  }
-
-  //Headers
-  h1, h2, h3, h4, h5, h6 {
-    @include title-font();
-  }
-
-  h1 {
-    border-bottom: double 3px $header-border-color;
-  }
-
-  h2 {
-    border-bottom: solid 1px $header-border-color;
-  }
-
-  h4, h5, h6 {
-    color: #777;
-  }
-
-  h6 {
-    font-style: italic;
-  }
 
   //Code
   code {
