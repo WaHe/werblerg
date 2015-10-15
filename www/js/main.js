@@ -6,7 +6,7 @@ var Incrementer = require('./views/incrementer');
 var count = 0;      // We need some app data. Here we just store a count.
 
 function sum(a, b) {
-	return a + b;
+  return a + b;
 }
 
 var counterValue = Incrementer.incrementClick.scan(0, sum);
@@ -17,8 +17,8 @@ var viewEmitter = K.emitter();
 Renderer.observe(viewEmitter);
 
 function updateTree(value) {
-	viewTree = Incrementer.render(value);
-	viewEmitter.emit(viewTree);
+  viewTree = Incrementer.render(value);
+  viewEmitter.emit(viewTree);
 }
 
 

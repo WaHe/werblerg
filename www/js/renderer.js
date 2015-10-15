@@ -12,15 +12,15 @@ var rootNode = createElement(tree);
 document.body.appendChild(rootNode);
 
 function update(newTree) {
-	var patches = diff(tree, newTree);
-	rootNode = patch(rootNode, patches);
-	tree = newTree;
+  var patches = diff(tree, newTree);
+  rootNode = patch(rootNode, patches);
+  tree = newTree;
 }
 
 function observe(view) {
-	view.onValue(update);
+  view.onValue(update);
 }
 
 module.exports = {
-	observe: observe
+  observe: observe
 };

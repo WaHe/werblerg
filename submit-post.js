@@ -6,8 +6,8 @@ var async = require('async');
 var config = require('./config');
 
 if (argv._.length < 3) {
-	console.log("Usage: submit-post.js [-d date] [-i image_folder] filename title synopsis");
-	process.exit(1);
+  console.log("Usage: submit-post.js [-d date] [-i image_folder] filename title synopsis");
+  process.exit(1);
 }
 
 var filename = argv._[0];
@@ -20,72 +20,72 @@ var date = argv.d || new Date().toISOString();
 
 
 if (argv.i) {
-	fs.readdir(argv.i, function(err, files){
-		if (err) {
-			fail(err);
-		} else {
-			async.each(files, function(file, cb) {
-				var source = argv.i + '/' + file;
-				var dest = config.imageDirectory + '/' + file;
-				fs.exists(dest, function(exists){
-					if (exists) {
-						cb("an image with the name '" + file + "' already exists: ");
-					} else {
-						copyFile(source, dest, cb);
-					}
-				});
-			}, function(err) {
-				if (err) {
-					fail(err);
-				} else {
-					insertPost();
-				}
-			});
-		}
-	});
+  fs.readdir(argv.i, function(err, files){
+    if (err) {
+      fail(err);
+    } else {
+      async.each(files, function(file, cb) {
+        var source = argv.i + '/' + file;
+        var dest = config.imageDirectory + '/' + file;
+        fs.exists(dest, function(exists){
+          if (exists) {
+            cb("an image with the name '" + file + "' already exists: ");
+          } else {
+            copyFile(source, dest, cb);
+          }
+        });
+      }, function(err) {
+        if (err) {
+          fail(err);
+        } else {
+          insertPost();
+        }
+      });
+    }
+  });
 } else {
-	insertPost();
+  insertPost();
 }
 
 function insertPost() {
-	postDao.insertPost(title, file.toString(), synopsis, date, function(err) {
-		if (err) {
-			fail(err);
-		}
-		else {
-			success();
-		}
-	});
+  postDao.insertPost(title, file.toString(), synopsis, date, function(err) {
+    if (err) {
+      fail(err);
+    }
+    else {
+      success();
+    }
+  });
 }
 
 function success() {
-	console.log("Successfully submitted!");
-	process.exit(0);
+  console.log("Successfully submitted!");
+  process.exit(0);
 }
 
 function fail(err) {
-	console.log("Error submitting: %s", err);
-	process.exit(1);
+  console.log("Error submitting: %s", err);
+  process.exit(1);
 }
 
 
 function copyFile(source, target, cb) {
-	var cbCalled = false;
+  var cbCalled = false;
 
-	var rd = fs.createReadStream(source);
-	rd.on("error", done);
+  var rd = fs.createReadStream(source);
+  rd.on("error", done);
 
-	var wr = fs.createWriteStream(target);
-	wr.on("error", done);
-	wr.on("close", function(ex) {
-		done();
-	});
-	rd.pipe(wr);
+  var wr = fs.createWriteStream(target);
+  wr.on("error", done);
+  wr.on("close", function(ex) {
+    done();
+  });
+  rd.pipe(wr);
 
-	function done(err) {
-		if (!cbCalled) {
-			cb(err);
-			cbCalled = true;
-		}
-	}
+  function done(err) {
+    if (!cbCalled) {
+      cb(err);
+      cbCalled = true;
+    }
+  }
 }
