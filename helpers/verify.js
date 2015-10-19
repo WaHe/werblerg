@@ -1,6 +1,6 @@
 
 module.exports = {
-	verifyId: function(id) {
-		return /^\d+$/.test(id);
-	}
+  verifyId: function(id) {
+    return /^\d+$/.test(id);
+  }
 };
