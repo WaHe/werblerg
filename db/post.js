@@ -4,10 +4,26 @@ var renderMarkdown = require('../helpers/render-markdown');
 
 module.exports = {
   getAllPosts: function(callback) {
-    db.execute("SELECT synopsis, title, id, to_char(date, 'IYYY-MM-DD') AS datestring FROM posts ORDER BY date DESC", [], callback);
+    db.execute("SELECT synopsis, title, id, to_char(date, 'IYYY-MM-DD') AS datestring FROM posts ORDER BY date DESC", [], function(err, result) {
+      if (err) {
+        callback("A database error occurred.");
+        return;
+      }
+      callback(null, result.rows);
+    });
   },
   getPostById: function (id, callback) {
-    db.execute("SELECT html, synopsis, title, id, to_char(date, 'IYYY-MM-DD') AS datestring FROM posts WHERE id=$1::int", [id], callback);
+    db.execute("SELECT html, synopsis, title, id, to_char(date, 'IYYY-MM-DD') AS datestring FROM posts WHERE id=$1::int", [id], function(err, result) {
+      if (err) {
+        callback("A database error occurred.");
+        return;
+      }
+      if (result.length < 1) {
+        callback(null, null);
+        return;
+      }
+      callback(null, result.rows[0]);
+    });
   },
   insertPost: function (title, source, synopsis, date, callback) {
     renderEquations(source, function(rendered) {

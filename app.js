@@ -3,12 +3,7 @@ var h = require('hyperscript');
 
 var config = require('./config');
 
-//Load templates
-var wrapper = require('./templates/wrapper')(h);
-var blog = require('./templates/blog')(h);
-var listing = require('./templates/listing')(h);
-var post = require('./templates/post')(h);
-var notFound = require('./templates/404')(h);
+var templates = require('./templates')(h);
 
 //Load helpers
 var verify = require('./helpers/verify');
@@ -22,17 +17,24 @@ if (config.sendStaticFiles) {
   app.use('/public', express.static('public'));
 }
 
+function notFoundResult() {
+  return templates.error('Not found', 'Sorry, but this page was not available.').outerHTML;
+}
+
+function errorResult() {
+  return templates.error('Server error', 'A server error occurred.').outerHTML;
+}
+
 app.get('/', function (req, res) {
   postDao.getAllPosts(function(err, result) {
-    if (err || result.rows.length < 1) {
+    if (err) {
       console.log(err);
-      res.status(404);
-      res.send(notFoundResult())
+      res.status(500);
+      res.send(errorResult());
     } else {
-      var send = wrapper("Walker Henderson's Blog", blog(listing(result.rows)));
+      var send = templates.listing("Walker Henderson's Blog", result);
       res.send(send.outerHTML);
     }
-
   });
 });
 
@@ -40,27 +42,27 @@ app.get('/post/:id', function(req, res) {
   var id = req.params.id;
   if (verify.verifyId(id)) {
     postDao.getPostById(req.params.id, function(err, result) {
-      if (err || result.rows.length < 1) {
+      if (err) {
         console.log(err);
+        res.status(500);
+        res.send(errorResult());
+      } else if (!result) {
         res.status(404);
-        res.send(notFoundResult())
+        res.send(notFoundResult());
       } else {
-        res.send(wrapper(result.rows[0].title, blog(post(result.rows[0]))).outerHTML);
+        res.send(templates.post(result).outerHTML);
       }
-
     });
   } else {
+    res.status(404);
     res.send(notFoundResult());
+    res.send();
   }
 });
 
 app.get('*', function(req, res) {
   res.send(notFoundResult());
 });
-
-function notFoundResult() {
-  return wrapper("Not found", blog(notFound())).outerHTML;
-}
 
 var server = app.listen(config.port, function () {
   var host = server.address().address;

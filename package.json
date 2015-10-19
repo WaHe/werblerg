@@ -2,7 +2,6 @@
   "name": "werblerg",
   "version": "0.1.0",
   "dependencies": {
-    "MathJax-node": "https://github.com/mathjax/MathJax-node/tarball/master",
     "async": "^1.4.2",
     "batik": "^0.1.2-alpha",
     "body-parser": "^1.14.1",

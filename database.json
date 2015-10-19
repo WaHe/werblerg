@@ -3,7 +3,15 @@
     "host": "localhost",
     "user": "postgres",
     "password" : "postgres",
-    "database": "postgres",
+    "database": "werblerg_dev",
+    "driver": "postgres",
+    "multipleStatements": true
+  },
+  "test": {
+    "host": "localhost",
+    "user": "postgres",
+    "password" : "postgres",
+    "database": "werblerg_test",
     "driver": "postgres",
     "multipleStatements": true
   },
