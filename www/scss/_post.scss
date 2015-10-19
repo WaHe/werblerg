@@ -10,6 +10,7 @@
   //font-size: 1.4em;
   @include title-font();
   text-transform: uppercase;
+  border-bottom: none;
 }
 
 p {

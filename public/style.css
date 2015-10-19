@@ -418,25 +418,6 @@ input[type="radio"] {
   text-align: center;
   margin-top: 30px; }
 
-.login-field {
-  padding: 10px; }
-
-.login-username {
-  display: block; }
-
-.login-password {
-  display: block; }
-
-input[type=text], input[type=password] {
-  padding: 5px;
-  border: 2px solid #ccc; }
-
-input[type=submit] {
-  padding: 5px 15px;
-  background: #ccc;
-  border: 0 none;
-  cursor: pointer; }
-
 .item {
   margin-bottom: 10px;
   padding: 5px; }
@@ -464,7 +445,8 @@ input[type=submit] {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-weight: normal;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  border-bottom: none; }
 
 p {
   font-size: 1.2em; }
