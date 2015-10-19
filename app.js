@@ -1,5 +1,4 @@
 var express = require('express');
-var fs = require('fs');
 var h = require('hyperscript');
 
 var config = require('./config');
@@ -12,7 +11,6 @@ var post = require('./templates/post')(h);
 var notFound = require('./templates/404')(h);
 
 //Load helpers
-var db = require('./helpers/db');
 var verify = require('./helpers/verify');
 
 //Load accessors

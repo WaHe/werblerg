@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var browserify = require('browserify');
 var transform = require('vinyl-transform');
-var uglify = require('gulp-uglify');
 
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -23,7 +22,6 @@ gulp.task('scripts', function() {
 
   return gulp.src(['./www/js/main.js'])
     .pipe(browserified)
-    //.pipe(uglify('site.js'))
     .pipe(gulp.dest('./public'));
 });
 

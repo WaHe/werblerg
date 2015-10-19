@@ -12,8 +12,10 @@ function parseEquations(str, cb) {
   var m;
   var matches = [];
   var replacements = [];
-  while (m = regex.exec(str)) {
+  m = regex.exec(str);
+  while (m) {
     matches.push({index: m.index + 1, len: m[0].length - 1, text: m[1].trim()});
+    m = regex.exec(str);
   }
   async.each(matches,
     function(match, next) {
@@ -22,7 +24,7 @@ function parseEquations(str, cb) {
         next();
       });
     },
-    function(err) {
+    function() {
       var offset = 0;
       replacements.map(function(replacement, idx) {
         str = replaceSubstring(str, matches[idx].index + offset, matches[idx].len, replacement);

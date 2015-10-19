@@ -77,7 +77,7 @@ function copyFile(source, target, cb) {
 
   var wr = fs.createWriteStream(target);
   wr.on("error", done);
-  wr.on("close", function(ex) {
+  wr.on("close", function() {
     done();
   });
   rd.pipe(wr);
