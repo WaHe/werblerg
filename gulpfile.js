@@ -14,6 +14,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./public'));
 });
 
+/*
 gulp.task('scripts', function() {
   var browserified = transform(function(filename) {
     var b = browserify(filename);
@@ -24,13 +25,14 @@ gulp.task('scripts', function() {
     .pipe(browserified)
     .pipe(gulp.dest('./public'));
 });
+*/
 
 gulp.task('watch', function() {
-  gulp.watch('./www/js/*.js', ['scripts']);
+  // gulp.watch('./www/js/*.js', ['scripts']);
   gulp.watch('./www/scss/*.scss', ['sass']);
 });
 
-gulp.task('default', ['watch', 'scripts', 'sass']);
+gulp.task('default', ['watch', 'sass']);
 
 function handleError(error) {
   console.log("[ERROR] " + error.plugin + ": " + error.message);

@@ -26,13 +26,11 @@ module.exports = {
     });
   },
   insertPost: function (title, source, synopsis, date, callback) {
-    renderEquations(source, function(rendered) {
-      var html = renderMarkdown(rendered);
-      db.execute(
-        'INSERT INTO posts (source, html, synopsis, date, title) VALUES ($1::text, $2::text, $3::text, $4::timestamptz, $5::text) RETURNING id',
-        [source, html, synopsis, date, title],
-        callback
-      )
-    });
+    var html = renderMarkdown(source);
+    db.execute(
+      'INSERT INTO posts (source, html, synopsis, date, title) VALUES ($1::text, $2::text, $3::text, $4::timestamptz, $5::text) RETURNING id',
+      [source, html, synopsis, date, title],
+      callback
+    );
   }
 };

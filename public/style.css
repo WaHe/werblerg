@@ -43,8 +43,7 @@ a {
   background: transparent; }
   a:focus {
     outline: thin dotted; }
-  a:hover,
-  a:active {
+  a:hover, a:active {
     outline: 0; }
 
 h1 {
@@ -100,8 +99,7 @@ pre {
 q {
   quotes: "\201C" "\201D" "\2018" "\2019"; }
 
-q:before,
-q:after {
+q:before, q:after {
   content: '';
   content: none; }
 
@@ -157,7 +155,8 @@ select {
   text-transform: none; }
 
 button,
-html input[type="button"], input[type="reset"],
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer; }
@@ -183,12 +182,10 @@ input[type="search"] {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box; }
-  input[type="search"]::-webkit-search-cancel-button,
-  input[type="search"]::-webkit-search-decoration {
+  input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none; }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   padding: 0; }
 
@@ -553,5 +550,9 @@ a {
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
+
+span.katex-html {
+  font-size: 1em;
+  line-height: 1em; }
 
 /*# sourceMappingURL=style.css.map */

@@ -12,6 +12,11 @@ module.exports = function (h) {
           rel: 'stylesheet',
           type: 'text/css',
           href: '/public/style.css'
+        }),
+        h('link', {
+          rel: 'stylesheet',
+          type: 'text/css',
+          href: '//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css'
         })
       ),
       h('body',

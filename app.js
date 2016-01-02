@@ -18,7 +18,7 @@ if (config.sendStaticFiles) {
 }
 
 function notFoundResult() {
-  return templates.error('Not found', 'Sorry, but this page was not available.').outerHTML;
+  return templates.error('Not found', 'Sorry, but this page is not available.').outerHTML;
 }
 
 function errorResult() {
@@ -61,6 +61,7 @@ app.get('/post/:id', function(req, res) {
 });
 
 app.get('*', function(req, res) {
+  res.status(404);
   res.send(notFoundResult());
 });
 

@@ -17,82 +17,39 @@ var title = argv._[1];
 var synopsis = argv._[2];
 
 var file = fs.createReadStream(filename);
+var date = argv.d || new Date().toISOString();
+var imageFolder = argv.i;
 
-file.pipe(
+var pipe = file.pipe(
   transformMathmode({
     inline:  function(tex, cb) { cb(katex.renderToString(tex)) },
     display: function(tex, cb) { cb(katex.renderToString(tex)) }
   })
-).pipe(process.stdout);
+);
 
+var s = '';
+pipe.on('data', function(chunk) {
+  console.log('read: ' + chunk);
+  s += chunk;
+});
 
-// if (argv.i) {
-//   fs.readdir(argv.i, function(err, files){
-//     if (err) {
-//       fail(err);
-//     } else {
-//       async.each(files, function(file, cb) {
-//         var source = argv.i + '/' + file;
-//         var dest = config.imageDirectory + '/' + file;
-//         fs.exists(dest, function(exists){
-//           if (exists) {
-//             cb("an image with the name '" + file + "' already exists: ");
-//           } else {
-//             copyFile(source, dest, cb);
-//           }
-//         });
-//       }, function(err) {
-//         if (err) {
-//           fail(err);
-//         } else {
-//           insertPost();
-//         }
-//       });
-//     }
-//   });
-// } else {
-//   insertPost();
-// }
+pipe.on('end', function() {
+  postDao.insertPost(title, s, synopsis, date, function(err) {
+    if (err) {
+      fail(err);
+    }
+    else {
+      success();
+    }
+  });
+});
 
-// function insertPost() {
-//   postDao.insertPost(title, file.toString(), synopsis, date, function(err) {
-//     if (err) {
-//       fail(err);
-//     }
-//     else {
-//       success();
-//     }
-//   });
-// }
+function success() {
+  console.log("Successfully submitted!");
+  process.exit(0);
+}
 
-// function success() {
-//   console.log("Successfully submitted!");
-//   process.exit(0);
-// }
-
-// function fail(err) {
-//   console.log("Error submitting: %s", err);
-//   process.exit(1);
-// }
-
-
-// function copyFile(source, target, cb) {
-//   var cbCalled = false;
-
-//   var rd = fs.createReadStream(source);
-//   rd.on("error", done);
-
-//   var wr = fs.createWriteStream(target);
-//   wr.on("error", done);
-//   wr.on("close", function() {
-//     done();
-//   });
-//   rd.pipe(wr);
-
-//   function done(err) {
-//     if (!cbCalled) {
-//       cb(err);
-//       cbCalled = true;
-//     }
-//   }
-// }
+function fail(err) {
+  console.log("Error submitting: %s", err);
+  process.exit(1);
+}
