@@ -29,7 +29,6 @@ var pipe = file.pipe(
 
 var s = '';
 pipe.on('data', function(chunk) {
-  console.log('read: ' + chunk);
   s += chunk;
 });
 
