@@ -24,14 +24,9 @@
     "virtual-hyperscript": "4.6.0"
   },
   "devDependencies": {
-    "browserify": "^11.2.0",
-    "gulp": "^3.9.0",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.4.1",
     "minimist": "^1.2.0",
     "nodemon": "^1.8.1",
-    "vinyl-transform": "^1.0.0"
+    "watch-run": "^1.2.4"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -44,6 +39,9 @@
     }
   },
   "scripts": {
-    "start": "nodemon app.js -i public -i www -e js"
+    "start": "nodemon app.js -i public -i www -e js",
+    "watch": "watch-run -p './www/**/*.js,./www/**/*.scss' npm run build",
+    "build": "npm run build-sass",
+    "build-sass": "node-sass ./www/scss/style.scss ./public/style.css --output-style compressed"
   }
 }
