@@ -2,30 +2,24 @@
   "name": "werblerg",
   "version": "0.1.0",
   "dependencies": {
-    "async": "^1.4.2",
-    "batik": "^0.1.2-alpha",
-    "body-parser": "^1.14.1",
-    "commonmark": "^0.22.0",
-    "cookie-parser": "^1.4.0",
+    "async": "^1.5.2",
+    "body-parser": "^1.15.0",
+    "commonmark": "^0.24.0",
+    "cookie-parser": "^1.4.1",
     "cookie-session": "^1.2.0",
-    "dom-delegator": "^13.1.0",
-    "express": "^4.13.3",
+    "express": "^4.13.4",
     "hyperscript": "^1.4.7",
-    "jquery": "2.1.4",
     "katex": "^0.5.1",
-    "kefir": "^3.1.0",
     "minimist": "^1.2.0",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
-    "pg": "^4.4.2",
+    "pg": "^4.5.1",
     "pg-native": "^1.9.0",
-    "transform-markdown-mathmode": "^0.1.8",
-    "virtual-dom": "2.1.1",
-    "virtual-hyperscript": "4.6.0"
+    "transform-markdown-mathmode": "^0.1.8"
   },
   "devDependencies": {
     "minimist": "^1.2.0",
-    "nodemon": "^1.8.1",
+    "nodemon": "^1.9.1",
     "watch-run": "^1.2.4"
   },
   "eslintConfig": {
